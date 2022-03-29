@@ -1,0 +1,32 @@
+﻿@model Demo.Models.Employer
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <form asp-action="Edit" asp-controller="Employer" method="post">
+
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" />
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Salary"></label>
+                <input asp-for="Salary" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update"
+                       class="btn btn-primary" onclick="return confirm('Are you sure to update this record')"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

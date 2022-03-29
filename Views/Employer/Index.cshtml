@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Demo.Models.Employer>
+
+<a asp-action="Create" asp-controller="Employer" class="btn btn-success">Create</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>City</th>
+    </tr>
+    @foreach (var list in Model)
+    {
+        <tr>
+            <td>@list.Id</td>
+            <td>@list.Name</td>
+            <td>@list.Salary</td>
+            <td>@list.City</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Employer" class="btn btn-primary" asp-route-id="@list.Id"
+                   >Edit</a>
+
+                <a asp-action="Details" asp-controller="Employer" class="btn btn-warning" asp-route-id="@list.Id">Details</a>
+
+                <a asp-action="Delete"
+                   asp-controller="Employer" class="btn btn-danger" asp-route-id="@list.Id" onclick="return confirm('Are you sure to delete this record')">Delete</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
